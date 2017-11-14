@@ -1,20 +1,34 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
-import { StompService } from 'ng2-stomp-service';
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {PageNotFoundComponent} from './components/not-found/page-not-found.component';
+import {AppRoutingModule} from './app-routing.module';
+import {LoginModule} from './components/login/login.module';
+import {ChatModule} from './components/chat-list/chat.module';
+import {Ng2Webstorage} from 'ngx-webstorage';
+import {ChatComponent} from './components/chat-temp/chat.component';
+import {NavbarComponent} from './components/layouts/navbar/navbar.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatComponent, // temp
+    PageNotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpClientModule,
+    LoginModule,
+    ChatModule,
+    Ng2Webstorage,
+    AppRoutingModule
   ],
-  providers: [StompService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
